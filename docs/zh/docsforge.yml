@@ -10,9 +10,20 @@ theme:
   name: material
   language: zh
   palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
     primary: white
     accent: red
-    scheme: preference
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: black
+    accent: red
+    toggle:
+      icon: material/brightness-4
+      name: Switch to dark mode
   icon:
     repo: fontawesome/brands/github-alt
   logo: static/img/logo.png
@@ -90,6 +101,7 @@ nav:
   - title: Other
     children:
     - path: misc/other/pyc.md
+  - path: misc/others.md
 - title: Crypto
   children:
   - path: crypto/introduction.md
@@ -271,6 +283,10 @@ nav:
     - title: 程序执行流程
       children:
       - path: executable/elf/running-overview.md
+  - path: executable/pe/pe-excutable.md
+  - path: executable/pe/pe-export-table.md
+  - path: executable/pe/pe-import-table.md
+  - path: executable/pe/pe-relocation-table.md
 - title: Reverse
   children:
   - title: Reverse Overview
@@ -346,6 +362,7 @@ nav:
         - path: reverse/platform/windows/anti-debug/zwsetinformationthread.md
         - path: reverse/platform/windows/anti-debug/junk-code.md
         - path: reverse/platform/windows/anti-debug/example.md
+        - path: reverse/platform/windows/anti-debug/thread_local_storage.md
   - title: Language related
     children:
     - path: reverse/language/introduction.md
@@ -419,6 +436,8 @@ nav:
               - path: pwn/linux/user-mode/heap/ptmalloc2/implementation/tcache.md
               - path: pwn/linux/user-mode/heap/ptmalloc2/implementation/malloc-state.md
               - path: pwn/linux/user-mode/heap/ptmalloc2/implementation/misc.md
+              - path: pwn/linux/user-mode/heap/ptmalloc2/leak-heap.md
+              - path: pwn/linux/user-mode/heap/ptmalloc2/ptmalloc-check.md
             - path: pwn/linux/user-mode/heap/ptmalloc2/heapoverflow-basic.md
             - path: pwn/linux/user-mode/heap/ptmalloc2/off-by-one.md
             - path: pwn/linux/user-mode/heap/ptmalloc2/chunk-extend-overlapping.md
@@ -569,6 +588,7 @@ nav:
       - title: Basic Knowledge
         children:
         - path: pwn/windows/kernel-mode/basic-knowledge/introduction.md
+    - path: pwn/windows/kernel-mode/readme.md
   - title: MacOS Platform
     children:
     - path: pwn/macos/readme.md
@@ -619,6 +639,7 @@ nav:
         - title: Tricks
           children:
           - path: pwn/virtualization/qemu/exploitation/tricks/qemu-monitor.md
+      - path: pwn/virtualization/qemu/exploitation/oob.md
     - title: Virtual Box
       children:
       - path: pwn/virtualization/virtualbox/readme.md
@@ -758,6 +779,8 @@ nav:
       children:
       - path: android/basic_reverse/dynamic/dynamic_debug.md
       - path: android/basic_reverse/dynamic/ida_native_debug.md
+      - path: android/basic_reverse/dynamic/ida_smali_debug.md
+  - path: android/readme.md
 - title: ICS
   children:
   - path: ics/ctfs.md
@@ -841,5 +864,6 @@ extra_javascript:
 extra_css:
 - static/css/extra.css
 plugins:
-- blog:
-    enabled: false
+- privacy:
+    assets_exclude:
+    - cdnjs.loli.net/ajax/libs/mathjax/*

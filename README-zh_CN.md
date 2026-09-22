@@ -51,7 +51,7 @@ Come and join us, we need you!
 
 ## How to build？
 
-本文档目前采用 [mkdocs](https://github.com/mkdocs/mkdocs) 部署在 [https://ctf-wiki.org](https://ctf-wiki.org)。
+本文档目前采用 [DocsForge](https://github.com/QQSHI13/docsforge) 部署在 [https://ctf-wiki.org](https://ctf-wiki.org)。
 
 本项目可以直接部署在本地，具体方式如下：
 
@@ -61,12 +61,12 @@ git clone https://github.com/ctf-wiki/ctf-wiki.git
 # 2. requirements
 pip install -r requirements.txt
 # generate static file in site/
-python3 scripts/docs.py build-all
-# deploy at http://127.0.0.1:8008
-python3 scripts/docs.py serve
+docsforge build
+# live-reload preview at http://127.0.0.1:8000
+docsforge serve
 ```
 
-**mkdocs 本地部署的网站是动态更新的，即当你修改并保存 md 文件后，刷新页面就能随之动态更新。**
+**本地部署的网站支持动态更新，修改并保存 md 文件后，刷新页面就能看到最新内容。**
 
 
 你只是想本地浏览，并不想修改文档？试试 Docker 吧！

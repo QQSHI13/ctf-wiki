@@ -51,7 +51,7 @@ Finally, originating from the community, as an independent organization, **CTF W
 
 ## How to build？
 
-CTF Wiki uses [mkdocs](https://github.com/mkdocs/mkdocs) to show its contents. And it is deployed at [https://ctf-wiki.org](https://ctf-wiki.org).
+CTF Wiki uses [DocsForge](https://github.com/QQSHI13/docsforge) to show its contents. And it is deployed at [https://ctf-wiki.org](https://ctf-wiki.org).
 
 It can also be deployed locally, with the following steps:
 
@@ -61,12 +61,12 @@ git clone https://github.com/ctf-wiki/ctf-wiki.git
 # 2. requirements
 pip install -r requirements.txt
 # generate static file in site/
-python3 scripts/docs.py build-all
-# deploy at http://127.0.0.1:8008
-python3 scripts/docs.py serve
+docsforge build
+# live-reload preview at http://127.0.0.1:8000
+docsforge serve
 ```
 
-**A local instance of mkdocs is dynamically updated, for instance when a markdown file is modified, the corresponding page will be modified too.**
+**The local preview live-reloads: edit a Markdown file and the page updates.**
 
 If you just want to view it statically, try Docker!
 

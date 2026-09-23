@@ -46,8 +46,23 @@
   var buttons = document.querySelectorAll("button[data-md-color-scheme]")
   Array.prototype.forEach.call(buttons, function(button) {
     button.addEventListener("click", function() {
-      document.body.dataset.mdColorScheme = this.dataset.mdColorScheme;
-      localStorage.setItem("data-md-color-scheme",this.dataset.mdColorScheme);
+      var scheme = this.dataset.mdColorScheme;
+      // Route through the matching header radio when one exists: radios
+      // are what the theme system saves, so the choice persists and the
+      // header toggle stays in sync. Custom schemes fall back to the
+      // DocsForge palette API.
+      var radios = document.querySelectorAll('input[name="__palette"]');
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].getAttribute("data-md-color-scheme") === scheme) {
+          radios[i].click();
+          return;
+        }
+      }
+      if (window.docsforge && window.docsforge.setPalette) {
+        window.docsforge.setPalette({ scheme: scheme });
+      } else {
+        document.body.setAttribute("data-md-color-scheme", scheme);
+      }
     })
   })
 </script>
@@ -81,8 +96,14 @@
   var buttons = document.querySelectorAll("button[data-md-color-primary]");
   Array.prototype.forEach.call(buttons, function(button) {
     button.addEventListener("click", function() {
-      document.body.dataset.mdColorPrimary = this.dataset.mdColorPrimary;
-      localStorage.setItem("data-md-color-primary",this.dataset.mdColorPrimary);
+      var primary = this.dataset.mdColorPrimary;
+      // Persist via the DocsForge palette API (applies + saves); plain
+      // body-attribute writes are overwritten by the saved theme on reload.
+      if (window.docsforge && window.docsforge.setPalette) {
+        window.docsforge.setPalette({ primary: primary });
+      } else {
+        document.body.setAttribute("data-md-color-primary", primary);
+      }
     })
   })
 </script>
@@ -112,8 +133,14 @@
   var buttons = document.querySelectorAll("button[data-md-color-accent]");
   Array.prototype.forEach.call(buttons, function(button) {
     button.addEventListener("click", function() {
-      document.body.dataset.mdColorAccent = this.dataset.mdColorAccent;
-      localStorage.setItem("data-md-color-accent",this.dataset.mdColorAccent);
+      var accent = this.dataset.mdColorAccent;
+      // Persist via the DocsForge palette API (applies + saves); plain
+      // body-attribute writes are overwritten by the saved theme on reload.
+      if (window.docsforge && window.docsforge.setPalette) {
+        window.docsforge.setPalette({ accent: accent });
+      } else {
+        document.body.setAttribute("data-md-color-accent", accent);
+      }
     })
   })
 </script>

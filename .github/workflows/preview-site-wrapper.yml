@@ -18,11 +18,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@v4 # persist-credentials: false is required below for the deployment to work correctly.
+        uses: actions/checkout@v7 # persist-credentials: false is required below for the deployment to work correctly.
         with:
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install requirements
@@ -33,7 +33,7 @@ jobs:
         run: |
           rm -f site.zip
           zip -r site.zip ./site
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7.0.1
         with:
           name: site-zip
           path: ./site.zip

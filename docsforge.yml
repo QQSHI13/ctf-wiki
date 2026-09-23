@@ -865,6 +865,7 @@ extra_css:
 - static/css/extra.css
 plugins:
 - privacy:
-    assets_exclude:
-    - cdnjs.loli.net/ajax/libs/mathjax/*
+    enabled: false
 docs_dir: docs
+offline:
+  mode: none

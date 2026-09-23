@@ -2017,7 +2017,7 @@ if __name__=='__main__':
 
 ##### 基本信息
 
-參見[unlink HITCON stkof 簡介](./unlink.md#2014 HITCON stkof)
+參見[unlink HITCON stkof 簡介](./unlink.md#2014-hitcon-stkof)
 
 ##### libc 2.26 tcache 利用方法
 

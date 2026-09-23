@@ -1,6 +1,6 @@
 # DLL 文件脫殼
 
-這裏需要聯繫上篇的 [手動查找IAT並使用ImportREC重建](/reverse/unpack/manually-fix-iat/index.html)
+這裏需要聯繫上篇的 [手動查找IAT並使用ImportREC重建](manually-fix-iat.md)
 
 例題文件你可以點擊此處下載: [unpack_dll.zip](https://github.com/ctf-wiki/ctf-challenges/blob/master/reverse/unpack/unpack_dll.zip)
 
@@ -14,4 +14,4 @@
 
 一般在入口點, 程序都會保存一些信息, 這裏就很簡單, 只作了一個`cmp`. 要注意的一點是, 這裏的`jnz`跳轉直接就跳到了`unpacking`過程的末尾. 因此我們需要修改寄存器的`z`標誌來使得跳轉失效. 同時在`unpacking`過程的末尾設下一個斷點以避免脫殼完然後直接運行.(程序會斷在這個斷點上, 但是脫殼已經完成, 代碼都很清晰)
 
-`Dll`脫殼的基本步驟跟`exe`文件脫殼一樣, 而在重建`IAT`時, 需要照着上篇 [手動查找IAT並使用ImportREC重建](/reverse/unpack/manually-fix-iat/index.html) 所說的那樣, 手動找到`IAT`表並用`ImportREC`進行重建. 只是要注意, 在脫殼完dump後, 要記得用LordPE把`DLL`標誌恢復過來並將文件後綴名改爲`.dll`.
+`Dll`脫殼的基本步驟跟`exe`文件脫殼一樣, 而在重建`IAT`時, 需要照着上篇 [手動查找IAT並使用ImportREC重建](manually-fix-iat.md) 所說的那樣, 手動找到`IAT`表並用`ImportREC`進行重建. 只是要注意, 在脫殼完dump後, 要記得用LordPE把`DLL`標誌恢復過來並將文件後綴名改爲`.dll`.

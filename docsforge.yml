@@ -866,6 +866,8 @@ extra_css:
 plugins:
 - privacy:
     enabled: false
+- blog:
+    enabled: false
 docs_dir: docs
 offline:
   mode: none

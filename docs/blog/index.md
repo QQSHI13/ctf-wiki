@@ -1,6 +1,0 @@
----
-template: blog.html
----
-
-# Blog
-

@@ -312,7 +312,7 @@ nav:
     - title: 模拟执行
       children:
       - path: reverse/tools/simulate-execution/angr.md
-      - path: reverse/tools/simulate-execution//unicorn.md
+      - path: reverse/tools/simulate-execution/unicorn.md
   - title: 算法逆向
     children:
     - path: reverse/identify-encode-encryption/introduction.md
